@@ -29,7 +29,6 @@ public class Main {
                     raf = new RandomAccessFile(archivo,"rwd");
 
                     for (int i = 1; i < procesoss + 1; i++){
-
                         String palabra = generaPalabra();//ASIGNO LA PALABRA
                         bloqueo = raf.getChannel().lock();
                         try{
