@@ -1,14 +1,10 @@
 package org.example.Tema2.Act4Executer;
-import java.util.concurrent.ExecutorService;
-
-import static java.util.concurrent.Executors.newFixedThreadPool;
 
 public class Cajera extends Thread{
 
-    ExecutorService cajeras = newFixedThreadPool(2);
     Cliente cliente;
     public Cajera(String nombre, Cliente client){
-        this.setName(nombre);
+        this.setName(nombre); //super(nombre)
         this.cliente = client;
     }
     @Override

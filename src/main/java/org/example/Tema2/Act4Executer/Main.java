@@ -8,7 +8,6 @@ public class Main {
     public static void main(String[] args) {
 
         ExecutorService executor = Executors.newFixedThreadPool(2);
-        ManejarExcepcion manejador = new ManejarExcepcion();
         ArrayList<Cliente> clientes = new ArrayList<>();
         clientes.add(new Cliente("Cliente 1", new int[] { 2, 2, 1, 1})); // 6 Seg
         clientes.add(new Cliente("Cliente 2", new int[] { 1, 1, 2, 1})); // 5 Seg
@@ -21,7 +20,7 @@ public class Main {
         //Hilos
         for(int i = 0; i <clientes.size(); i++){
             Cajera cajera = new Cajera("Cajera "+(i+1), clientes.get(i));
-            executor.execute(cajera);//hace ya el start
+            executor.execute(cajera);//hace ya el start por si mismo
         }
 
         executor.close();
