@@ -53,3 +53,65 @@ public class Servidor {
         }
     }
 }
+
+/*Este ejercicio hecho de otra forma con chatGpt
+*public class Suministrador {
+    public static void main(String[] args) {
+        FileLock bloqueo = null;
+        RandomAccessFile raf = null;
+        String nombreFichero = "miArchivo.txt";
+        File archivo = new File(nombreFichero);
+
+        try {
+            // Abre el archivo en modo "rwd" (lectura y escritura, con actualización de datos)
+            raf = new RandomAccessFile(archivo, "rwd");
+
+            // Empezamos el ciclo para escribir los números del 0 al 9
+            for (int i = 0; i < 10; i++) {
+                // Intentamos obtener un bloqueo exclusivo en el archivo para asegurarnos de que nadie más esté escribiendo
+                bloqueo = raf.getChannel().lock();
+
+                // Verificamos si el archivo está vacío
+                if (raf.length() == 0) {
+                    // Si está vacío, escribimos el número
+                    raf.writeInt(i);
+                    System.out.println("Escribiendo el número: " + i);
+                } else {
+                    // Si el archivo no está vacío, esperamos
+                    System.out.println("El archivo no está vacío, esperando...");
+                    // Liberamos el bloqueo
+                    bloqueo.release();
+                    bloqueo = null;
+                    Thread.sleep(500);  // Esperamos medio segundo antes de volver a intentar
+                    // Re-obtenemos el bloqueo y seguimos con la siguiente iteración
+                    bloqueo = raf.getChannel().lock();
+                }
+            }
+        } catch (IOException | InterruptedException e) {
+            // Manejo de excepciones
+            System.err.println("Error: " + e.getMessage());
+        } finally {
+            try {
+                if (bloqueo != null) {
+                    bloqueo.release(); // Liberamos el bloqueo si lo tenemos
+                }
+                if (raf != null) {
+                    raf.close(); // Cerramos el archivo
+                }
+            } catch (IOException e) {
+                System.err.println("Error al cerrar el archivo o el bloqueo: " + e.getMessage());
+            }
+        }
+    }
+}
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+* */
