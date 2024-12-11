@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 public class ListarEj2 {
     public static void main(String[] args) {
-        try{
+        try{ //aqui FALTA EL NOTEPAD, SI NECESITO ESTO IR A LA CARPETA DEL EJERCICIO EN SIIIII
             //creo el proceso que llamará al comando
             Process proceso = Runtime.getRuntime().exec("CMD /C DIR");
             proceso.waitFor(); //momento de espera
