@@ -1,8 +1,10 @@
-package org.example.Tema2.ActMariajo.ProblemaJardin;
+package org.example.Tema2.ActMariajo.JardinSincronizado;
 
 public class Main {
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
-
         RecursoJardin jardin = new RecursoJardin();
         //crea un objeto RecursoJardín
 
@@ -11,7 +13,7 @@ public class Main {
         }//entrada de 10 hilos al jardín
 
         for (int i = 1; i <= 15; i++) {
-            (new SalJardin("Sale" + i, jardin)).start();
+            (new SaleJardin("Sale" + i, jardin)).start();
         }//salida de 15 hilos al jardín
     }
 }

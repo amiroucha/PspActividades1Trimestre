@@ -1,10 +1,10 @@
-package org.example.Tema2.ActMariajo.ProblemaJardin;
+package org.example.Tema2.ActMariajo.JardinSincronizado;
 
-public class SalJardin extends Thread {
+public class SaleJardin extends Thread {
     //clase derivada de Thread que define un hilo
     private RecursoJardin jardin;
-    public SalJardin(String nombre, RecursoJardin j) {
-        super(nombre);
+    public SaleJardin(String nombre, RecursoJardin j) {
+        this.setName(nombre);
         this.jardin = j;
     }
 
@@ -14,4 +14,3 @@ public class SalJardin extends Thread {
         //invoca al método que decrementa la cuenta de accesos al jardín
     }
 }
-
