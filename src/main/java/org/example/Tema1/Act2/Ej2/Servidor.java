@@ -16,19 +16,25 @@ vez leídos los 10 números termina.*/
 public class Servidor {
     public static void main(String[] args) {
         FileLock bloqueo;
+        //RandomAccessFile, que permite acceder
+        // al archivo de manera aleatoria, tanto para lectura como para escritura.
         RandomAccessFile raf;
+
         // El nombre del fichero en el que va a escribir, si no existe lo crea
         String nombreFichero = "miArchivo.txt";
-        File archivo = new File(nombreFichero);
+        File archivo = new File(nombreFichero); //representa el archivo en el sistema
+
         // Printer se pone dentro del try porque así le indica que cuando termine de ejecutar el
         //bloque try cierra el PrintWriter, si no se cierra no escribe en el fichero
-        //printWriter:
+        //printWriter:v Este objeto se usa para escribir en el archivo.
 
-        //fileWriter: veveeeeeeeeeeeeeeeeer
-        try (PrintWriter writer = new PrintWriter(new FileWriter(nombreFichero))) {
+        try {
             for (int i = 0; i < 10; i++) {
+                //rwd permiso de lectura y escritura
                 raf = new RandomAccessFile(archivo, "rwd");
                 bloqueo = raf.getChannel().lock();
+                //Este bloqueo asegura que solo un hilo pueda escribir
+                // en el archivo en un momento dado, evitando problemas de concurrencia.
                 while (raf.length() > 0) {
                     bloqueo.release();
                     bloqueo = null;
@@ -36,13 +42,14 @@ public class Servidor {
 
                     bloqueo = raf.getChannel().lock();
                 }
-                raf.seek(0);
-                raf.writeInt(i);
+                raf.seek(0); //volver a la posicion inicial, al principiio
+                raf.writeInt(i); //escribe el valor de i como num entero
                 bloqueo.release();
                 bloqueo = null;
+                raf.close();
             }
         } catch (IOException | InterruptedException e) {
-            System.err.println(e);
+            System.err.println("error: " + e.getMessage());
         }
     }
 }
