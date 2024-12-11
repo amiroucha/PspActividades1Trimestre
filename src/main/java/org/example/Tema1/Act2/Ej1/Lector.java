@@ -8,7 +8,8 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Lector {
     public static void main(String[] args) {
-
+        //lee las palabras y las ordena
+        //lo hace con las tuberias, que la salida del escritor se pasa al lector
         ArrayList<String> palabras = new ArrayList<>();
         Scanner entrada = new Scanner(System.in);
 

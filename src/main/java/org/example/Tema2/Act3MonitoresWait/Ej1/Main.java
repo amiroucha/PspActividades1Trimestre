@@ -12,7 +12,6 @@ public class Main {
             Hilos hilo = new Hilos(""+i, servidorWebCompartido);
             hilo.start(); // Inicia el hilo
 
-
         }
 
     }

@@ -6,7 +6,7 @@ import java.util.Random;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Escritor {
     public static void main(String[] args) {
-
+        //genera tantas palabras como se le indique por argumento
         Random random = new Random();
 
         char caracteres[] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z'};
