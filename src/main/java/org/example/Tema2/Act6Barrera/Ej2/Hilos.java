@@ -21,7 +21,6 @@ public class Hilos extends Thread{
             System.out.println(getNombre()+ " : Kame hame ha!!!");
             try {
                 barrera.await();
-
                 sleep(1000);
             } catch (InterruptedException | BrokenBarrierException e) {
                 throw new RuntimeException(e);
