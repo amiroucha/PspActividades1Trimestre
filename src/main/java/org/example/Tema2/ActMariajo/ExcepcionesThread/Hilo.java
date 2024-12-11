@@ -4,6 +4,8 @@
  */
 package org.example.Tema2.ActMariajo.ExcepcionesThread;
 
+import java.util.Random;
+
 /**
  *
  * @author Usuario
