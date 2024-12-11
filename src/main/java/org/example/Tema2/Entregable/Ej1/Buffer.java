@@ -3,6 +3,8 @@ package org.example.Tema2.Entregable.Ej1;
 import java.util.Random;
 
 /*ARCHIVO COMPARTIDO*/
+//es el de las 3 posiciones y se va insertando y leyendo del mismo lugar, solo 1 cada vez
+// -num-  -num-  -num-
 public class Buffer {
     private final Integer[] buffer = new Integer[3];
     private final int maxCapacidad = 3;   //max capacidad del buffer
