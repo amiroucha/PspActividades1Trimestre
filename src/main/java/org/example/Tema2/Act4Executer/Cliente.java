@@ -14,7 +14,7 @@ public class Cliente {
         this.nombre = nombre;
     }
     public int[] getCarroCompra() {
-        return carroCompra;
+            return carroCompra;
     }
     public void setCarroCompra(int[] carroCompra) {
         this.carroCompra = carroCompra;

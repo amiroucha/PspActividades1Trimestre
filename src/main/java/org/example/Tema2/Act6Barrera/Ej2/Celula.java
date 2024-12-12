@@ -11,25 +11,22 @@ public class Celula implements Runnable {
         return nombre;
     }
 
-    public Celula(String nombre, CyclicBarrier barrera, CyclicBarrier barrera2){
+    public Celula(String nombre, CyclicBarrier barrera){
         this.nombre = nombre;
         this.barrera = barrera;
-        this.barrera2 = barrera2;
     }
 
     public void run() {
         while (true){
             try {
-                System.out.println(getNombre()+ " : shunkanido!!!");
-                barrera.await();
-
-                barrera2.await();
+                // Esperar a los demás en la barrera
+                barrera.await(); //cuando ella tabien llega aqui ya se suman 4
+                // Célula responde después de los ataques
+                System.out.println(getNombre() + " : shunkanido!!!");
                 Thread.sleep(1000);
             } catch (InterruptedException | BrokenBarrierException e) {
                 throw new RuntimeException(e);
             }
         }
-
-
     }
 }

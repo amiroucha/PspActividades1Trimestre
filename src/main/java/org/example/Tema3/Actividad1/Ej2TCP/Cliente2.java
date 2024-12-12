@@ -19,24 +19,25 @@ public class Cliente2 {
             try {
                 //construir la direccion del socket del servidor
                 Socket sCliente = new Socket(HOST, Puerto);
+
                 //preparar el flujo de entrada, mensajes del servidor
                 InputStream entrada = sCliente.getInputStream();
                 DataInputStream flujoEntrada = new DataInputStream(entrada);
+
                 //preparar el flujo de salida, mensajes que mandamos al servidor
                 DataOutputStream flujo_salida = new DataOutputStream(sCliente.getOutputStream());
+
                 //leo el mensaje recibido del servidor y lo impriomo
                 System.out.println(flujoEntrada.readUTF());
-                    //mientras que el servidor me mande un true
+                //mientras que el servidor me mande un true
                 while (flujoEntrada.readBoolean()) {
                     do {
-                        try {//pido el numero y lo parsero por si me mete algo distinto
-                            System.out.println("Adivina el numero (entre el 0 y 100)");
+                        try {// parsero numero por si me mete algo distinto
                             numero = Integer.parseInt(leer.nextLine());
                         } catch (NumberFormatException e) {
                             System.err.println("Error de formato : " + e.getMessage());
                             numero = 0;
                         }
-
                     } while (numero < 0 || numero > 100);
                     //manda el numero al servidor
                     flujo_salida.writeInt(numero);
@@ -45,13 +46,8 @@ public class Cliente2 {
                 }
                 sCliente.close();
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                System.err.println("Error de conexion con el servidor: "+e);
             }
         }
-
-
-
-
-
     }
 }

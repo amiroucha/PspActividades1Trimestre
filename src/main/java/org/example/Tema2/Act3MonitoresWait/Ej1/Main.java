@@ -6,13 +6,9 @@ public class Main {
     public static void main(String[] args) {
         ServidorWeb servidorWebCompartido = new ServidorWeb();
 
-
-        for(int i = 1; i <=4 ; i++)
-        {
+        for(int i = 1; i <=4 ; i++) {
             Hilos hilo = new Hilos(""+i, servidorWebCompartido);
             hilo.start(); // Inicia el hilo
-
         }
-
     }
 }

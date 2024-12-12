@@ -5,13 +5,12 @@ import java.util.concurrent.CyclicBarrier;
 public class Main2 {
     public static void main(String[] args) {
 
-        CyclicBarrier barrera = new CyclicBarrier(3);
-        CyclicBarrier barrera2 = new CyclicBarrier(1);
-        Hilos goku = new Hilos("Goku", barrera, barrera2);
-        Hilos goten = new Hilos("Goten", barrera, barrera2);
-        Hilos gohan = new Hilos("Gohan", barrera, barrera2);
+        CyclicBarrier barrera = new CyclicBarrier(4);
+        Hilos goku = new Hilos("Goku", barrera);
+        Hilos goten = new Hilos("Goten", barrera);
+        Hilos gohan = new Hilos("Gohan", barrera);
 
-        Celula celula = new Celula("Celula", barrera, barrera2);
+        Celula celula = new Celula("Celula", barrera);
         Thread celu = new Thread(celula);
 
         goku.start();
@@ -19,6 +18,4 @@ public class Main2 {
         gohan.start();
         celu.start();
     }
-
-
 }

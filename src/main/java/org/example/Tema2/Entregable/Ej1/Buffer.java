@@ -19,11 +19,12 @@ public class Buffer {
         while(numsDentro == maxCapacidad){
             System.out.println(nombre + " el buffer esta lleno, espero ");
             try {
-                wait();
+                wait();//hasta que se me avise
             } catch (InterruptedException e) {
                 System.out.println("Error al esperar "+e.getMessage());
             }
         }
+        //num random a insertar
         int numero = ram.nextInt(1, 101);//NUM RANDOM ENTRE 1 Y 100
         buffer[indiceInsertar] = numero;//inserto el numero dentro del buffer
         System.out.println(nombre + " ha insertado el numero: " + numero);

@@ -13,7 +13,9 @@ public class Hilos extends Thread{
     public void run() {
         for (int i = 0; i < 10; i++) { // Cada hilo llama a incrementaCuenta 10 veces
 
-            synchronized (servidor){
+            synchronized(servidor){
+                //se sincroniza el objeto, cuando llamas l metodo es compartido tambien
+                //cada vez que entra un hilo necesita terminar todo el metodo para poder meter se otro
                 servidor.incrementaCuenta();
             }
 

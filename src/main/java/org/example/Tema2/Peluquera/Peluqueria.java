@@ -15,9 +15,10 @@ public class Peluqueria {
         salaEspera = new ArrayList<>();
     }
     public synchronized boolean entrarCliente(int idCliente){//ve si hay sillas
+        // Verifica si hay espacio en la sala de espera
         if (salaEspera.size() >= sillasMax){
             System.out.println("----------Cliente " + idCliente + " intenta entrar pero no hay sitio.----------");
-            return false;
+            return false; // Si no hay sitio, el cliente no puede entrar
         }
         //hay sitio
         //añado el cliente a la lista de espera
@@ -29,7 +30,7 @@ public class Peluqueria {
             peluqueraDurmiendo = false;
             notifyAll();//avisa a la peluquera
         }
-
+        // Espera hasta que la silla de corte esté libre y sea su turno
         while(!sillaCortarLibre || salaEspera.getFirst() != idCliente){//la peluquera esta ocupada
             try {
                 wait();
@@ -37,7 +38,8 @@ public class Peluqueria {
                 throw new RuntimeException(e);
             }
         }
-        sillaCortarLibre = false;
+        // El cliente ocupa la silla de corte
+        sillaCortarLibre = false;// Marca la silla como ocupada
         System.out.println("----------Cliente " + idCliente + " esta en la silla de corte.----------");
         System.out.println("Peluquera cortando el pelo XXXXXXXXXX");
         clienteNum = idCliente;
@@ -45,12 +47,12 @@ public class Peluqueria {
         return true; //el cliente entro y se sento para el corte
     }
     public synchronized void esperarCliente(){//para que la peluquera sepa cuando viene cliente
-        while (salaEspera.isEmpty() && clientes<6 && sillaCortarLibre)
-        {
+        //mientras que el num de clientes atendidos sea menor de 6
+        while (salaEspera.isEmpty() && clientes<6 && sillaCortarLibre) {
             try {
                 System.out.println("La peluquera se duerme esperando al cliente");
                 peluqueraDurmiendo = true;
-                wait();
+                wait();// Espera a ser notificada por un cliente
 
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);

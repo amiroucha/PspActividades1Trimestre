@@ -6,7 +6,7 @@ public class Main {
         int numeroClien = 6;
 
         Peluqueria peluqueria = new Peluqueria(numeroSillas);
-        new Peluquera(peluqueria).start();
+        new Peluquera(peluqueria).start(); //peluquera se le pasa peluquería
         for (int i = 0; i < numeroClien; i++) {
             new Clientes(peluqueria,i).start();
         }

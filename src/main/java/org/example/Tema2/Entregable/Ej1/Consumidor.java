@@ -7,7 +7,7 @@ public class Consumidor extends Thread{
         this.nombre = nombre;
         this.buffer = buffer;
     }
-
+    //lee los numeros
     @Override
     public void run() {
         while(true){//se ejecuta infinitamente

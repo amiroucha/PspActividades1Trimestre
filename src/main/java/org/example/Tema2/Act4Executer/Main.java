@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 
 public class Main {
     public static void main(String[] args) {
-
+        //solo lanza dos hilos
         ExecutorService executor = Executors.newFixedThreadPool(2);
         ArrayList<Cliente> clientes = new ArrayList<>();
         clientes.add(new Cliente("Cliente 1", new int[] { 2, 2, 1, 1})); // 6 Seg

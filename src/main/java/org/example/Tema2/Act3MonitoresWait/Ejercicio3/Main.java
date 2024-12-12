@@ -1,4 +1,4 @@
-package org.example.Tema2.Act3MonitoresWait.Ej2.Ejercicio3;
+package org.example.Tema2.Act3MonitoresWait.Ejercicio3;
 
 public class Main {
     public static void main(String[] args) {

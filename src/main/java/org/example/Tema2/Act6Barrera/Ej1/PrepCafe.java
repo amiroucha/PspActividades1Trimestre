@@ -17,6 +17,6 @@ public class PrepCafe extends Thread {
             throw new RuntimeException(e);
         }
         System.out.println("Cafe hecho.");
-        cont.countDown();
+        cont.countDown();//bajo el contadir
     }
 }

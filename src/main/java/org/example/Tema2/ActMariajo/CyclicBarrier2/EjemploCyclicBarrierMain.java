@@ -19,6 +19,7 @@ public class EjemploCyclicBarrierMain {
 
         System.out.println("Creando hilos");
         for (int i = 0; i < numeroHilos; i++) {
+            //como si fuese la clase hilos
             Thread hilo = new Thread() {
                 @Override
                 public void run() {
@@ -36,7 +37,7 @@ public class EjemploCyclicBarrierMain {
 
         try {
             System.out.println("levanto barrera");
-            barreraInicio.await();
+            barreraInicio.await(); //se esperana q todos acaben apra seguir
             barreraFin.await();
             System.out.println("todo acabado");
         } catch (Exception e) {

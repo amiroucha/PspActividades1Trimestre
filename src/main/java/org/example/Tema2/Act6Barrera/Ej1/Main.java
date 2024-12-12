@@ -16,7 +16,7 @@ public class Main {
         System.out.println(" Preparando desayuno");
 
         try {
-            cont.await();
+            cont.await(); //cuando hayan pasado los 3 hilos
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

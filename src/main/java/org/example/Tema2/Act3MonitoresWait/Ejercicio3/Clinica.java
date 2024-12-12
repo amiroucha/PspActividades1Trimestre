@@ -1,4 +1,4 @@
-package org.example.Tema2.Act3MonitoresWait.Ej2.Ejercicio3;
+package org.example.Tema2.Act3MonitoresWait.Ejercicio3;
 
 public class Clinica extends Thread {
     boolean hayGatoDentro = false;
@@ -7,7 +7,7 @@ public class Clinica extends Thread {
     int animalesDentro = 0;
     //metodo para que el gato entre
     public synchronized void gatoEntrar(boolean urgencia){
-       while((perro3urg && !urgencia) || animalesDentro >0){//no queremos a ningun animal dentro
+       while((perro3urg && !urgencia) || animalesDentro > 0){//no queremos a ningun animal dentro
            System.out.println(Thread.currentThread().getName() + "  esperando para entrar");
            try {
                wait();
@@ -36,7 +36,6 @@ public class Clinica extends Thread {
     }
     //perros
     public synchronized void perroEntrar(boolean urgencia){
-
         while((gato2urg && !urgencia) || hayGatoDentro || animalesDentro >=2 ){
             System.out.println(Thread.currentThread().getName() + "  esperando para entrar");
             try {

@@ -28,6 +28,7 @@ public class Cliente1 {
                 byte[] respuesta = new byte[1000];
                 DatagramPacket respMensaje = new DatagramPacket(respuesta,respuesta.length);
                 sSocket.receive(respMensaje);
+                //muy improtante poner el punto incial yb final del paquete recibido
                 String datosRecibidos = new String(respMensaje.getData(), 0, respMensaje.getLength());
                 System.out.println(datosRecibidos);
             } catch (IOException e) {

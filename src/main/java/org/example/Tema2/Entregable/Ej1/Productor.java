@@ -7,7 +7,7 @@ public class Productor extends Thread{
         this.nombre = nombre;
         this.buffer = buffer;
     }
-
+    //Escribe los numeros
     @Override
     public void run() {
         while(true){//se ejecuta infinitamente

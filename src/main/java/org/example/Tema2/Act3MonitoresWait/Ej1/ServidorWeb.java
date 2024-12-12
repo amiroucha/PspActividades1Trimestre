@@ -7,9 +7,8 @@ public class ServidorWeb {
         cuenta = 0;
     }
     public void incrementaCuenta() {
-
         System.out.println("hilo " + Thread.currentThread().getName()+"----- Entra en Servidor");
-        cuenta++;
+        cuenta++; //total de accesos
         System.out.println(cuenta + " accesos");
     }
 

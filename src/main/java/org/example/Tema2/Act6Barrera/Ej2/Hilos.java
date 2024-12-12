@@ -4,12 +4,11 @@ import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
 public class Hilos extends Thread{
-    CyclicBarrier barrera, barrera2;
+    CyclicBarrier barrera;
     String nombre;
-    public Hilos(String nombre, CyclicBarrier barrera, CyclicBarrier barrera2){
+    public Hilos(String nombre, CyclicBarrier barrera){
         this.nombre = nombre;
         this.barrera = barrera;
-        this.barrera2 = barrera2;
     }
     public String getNombre() {
         return nombre;
@@ -17,7 +16,6 @@ public class Hilos extends Thread{
     @Override
     public void run() {
         while(true){
-
             System.out.println(getNombre()+ " : Kame hame ha!!!");
             try {
                 barrera.await();
@@ -26,7 +24,5 @@ public class Hilos extends Thread{
                 throw new RuntimeException(e);
             }
         }
-
-
     }
 }

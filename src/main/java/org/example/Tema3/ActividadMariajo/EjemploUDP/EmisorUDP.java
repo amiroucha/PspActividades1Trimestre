@@ -32,8 +32,8 @@ public class EmisorUDP {
         } else {
             try {
                 // Construye la dirección del socket del receptor
-                try ( // Crea el socket
-                        DatagramSocket sSocket = new DatagramSocket()) {
+                // Crea el socket
+                try (DatagramSocket sSocket = new DatagramSocket()) {
                     // Construye la dirección del socket del receptor
                     InetAddress maquina = InetAddress.getByName(args[0]);
                     int Puerto = 1500;

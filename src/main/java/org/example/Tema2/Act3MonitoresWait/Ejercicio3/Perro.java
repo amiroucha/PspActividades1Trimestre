@@ -1,8 +1,8 @@
-package org.example.Tema2.Act3MonitoresWait.Ej2.Ejercicio3;
+package org.example.Tema2.Act3MonitoresWait.Ejercicio3;
 
 public class Perro extends Thread{
     Clinica clinica;
-    boolean urgencia;
+    boolean urgencia; //este se podia hacer con las prioridades
     public Perro(String nombre, boolean urgencia, Clinica clinica){
         this.setName(nombre);
         this.urgencia = urgencia;
@@ -17,6 +17,7 @@ public class Perro extends Thread{
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        clinica.perroSalir();
+        //si lo pongo desde clinica me daba mal
+        clinica.perroSalir(); //este metodo debe de ir aqui
     }
 }

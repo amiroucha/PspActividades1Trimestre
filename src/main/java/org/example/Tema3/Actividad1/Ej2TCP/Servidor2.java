@@ -17,12 +17,15 @@ public class Servidor2 {
             //espera la conexion al cliente
             Socket sockEspera = skServidor.accept();
             System.out.println("Conectando al cliente");
+
             //preparo el flujo de salida
             OutputStream fuera = sockEspera.getOutputStream();
             DataOutputStream flujoSalida = new DataOutputStream(fuera);
+
             //preparo el flujo de entrada
             InputStream entrada = sockEspera.getInputStream();
             DataInputStream flujoEntrada = new DataInputStream(entrada);
+
             //mando ese mensaje al cliente
             flujoSalida.writeUTF("Hola, adivina el numero entre el 0 y el 100");
             //creo el numero y lo impriomo para no jugar de verdad

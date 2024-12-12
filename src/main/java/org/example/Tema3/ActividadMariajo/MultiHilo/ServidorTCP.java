@@ -25,8 +25,6 @@ public class ServidorTCP extends Thread{
 
     public void run(){
         //Aquí la lógica de la comunicación
-
-
         OutputStream aux = null;
         try {
             aux = sCliente.getOutputStream();
